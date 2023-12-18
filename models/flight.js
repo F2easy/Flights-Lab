@@ -8,8 +8,20 @@ const { Schema } = mongoose //or could do const Schema = mongoose.Schema
 
 const flightSchema = new Schema({
   // defining models
-  airline: String,
-  airport: String,
-  flightNo: Number,
+  airline:{
+    String,
+    enum:['American','Southwest','United']
+  }, 
+  airport:{ 
+    String,
+    enum:['AUS','DFW','DEN','LAX','SAN']
+  },
+  flightNo:
+    Number,
+    min: 10,
+    max: 9999,
+  
+
   departs: Date
 })
+
