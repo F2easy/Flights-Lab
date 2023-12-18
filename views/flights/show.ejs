@@ -1,4 +1,7 @@
 
+<%- include('./partials/header') %>
+
   <h3><%= flight.flight %></h3>
-</body>
-</html>
+  <h3>Complete: <%= flight.done ? 'Yes' : 'No' %></h3>
+
+<%- include('./partials/footer') %>

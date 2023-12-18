@@ -1,2 +1,15 @@
 <%- include('./partials/header') %>
+
+<ul>
+  <% flights.forEach(function(f){ %>
+  <li>
+    <a href="/flights/<%= f.flightNo %>"><%= f.flights %></a>
+    - 
+    <%= f.done ? 'done' : 'not done' %>
+  </li>
+  <% }); %>
+</ul>
+
+
+
 <%- include('./partials/footer') %>
