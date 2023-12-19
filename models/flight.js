@@ -9,19 +9,21 @@ const { Schema } = mongoose //or could do const Schema = mongoose.Schema
 const flightSchema = new Schema({
   // defining models
   airline:{
-    String,
+    type: String,
     enum:['American','Southwest','United']
   }, 
   airport:{ 
-    String,
+    type: String,
     enum:['AUS','DFW','DEN','LAX','SAN']
   },
-  flightNo:
-    Number,
+  flightNo:{
+   type: Number,
     min: 10,
     max: 9999,
-  
-
-  departs: Date
+  },
+  departs: { 
+    type: Date
+  }
 })
 
+module.exports = mongoose.model('Flights',flightSchema)
