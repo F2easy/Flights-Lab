@@ -5,6 +5,30 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose //or could do const Schema = mongoose.Schema
 
 
+const ticketSchema = new Schema({
+  // defining models
+  seat:{
+    type: String,
+    match: /[A-F][1-9]\d?/
+  }, 
+  flight:{ 
+    type: 'ObjectId',
+    ref: 'Flight'
+    
+  },
+  price:{
+   type: Number,
+    min: 0,
+    
+  },
+  
+})
+
+
+
+
+
+
 const destinationSchema = new Schema({
   airport:{ 
     type: String,
@@ -38,3 +62,5 @@ const flightSchema = new Schema({
 })
 
 module.exports = mongoose.model('Flights',flightSchema)
+
+module.exports = mongoose.model('Ticket', ticketSchema);
