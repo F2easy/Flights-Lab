@@ -11,6 +11,7 @@ router.get('/:id', flightCtrl.show)
 // POST /movies
 router.post('/', flightCtrl.create);
  
+router.post('/tickets/:id', flightCtrl.createTicket)
 // POST /
 // router.post('/', flightsCtrl.)
 
