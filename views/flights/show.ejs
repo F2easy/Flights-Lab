@@ -2,9 +2,6 @@
 <%- include('../partials/header') %>
 
 
-  <h3><%= flight.flight %></h3>
-  <h3>Complete: <%= flight.done ? 'Yes' : 'No' %></h3>
-  
   <h2>Airline</h2>
   <h3><%= flight.airline %></h3>
   <h2>Airport</h2>
@@ -13,8 +10,6 @@
   <h3><%= flight.flightNo %></h3>
   <h2>Departing at </h2>
   <h3><%= flight.departs %></h3>
-  <h2>Flight Destination</h2>
-  <h3><%= flight.destinations %></h3>
   <h2>Arrival</h2>
   <h3><% flight.destinations.forEach(function(dest) { %>
     <tr>
@@ -27,8 +22,8 @@
     <label for="airport"><br>
         <select name="airport">
             <option value="LAX">LAX</option>
-            <option value="LIH">LIH</option>
-            <option value="IAH">IAH</option>
+            <option value="SAN">LIH</option>
+            <option value="AUS">IAH</option>
             <option value="DEN">DEN</option>
         </select>
     </label><br>
@@ -61,7 +56,53 @@
 <h5>No Destinations Yet</h5>
 <%  } %>
 <br>
-  
+
+
+
+
+
+
+<form action="/flights/<%= flight.id %>" method="POST">
+  <label for="ticket"><br>
+      <select name="Purchase a Ticket">
+          <option value="/[A-F][1-9]\d?/">Seats Available</option>
+          >
+      </select>
+  </label><br>
+  <label for="flight"><br>  
+      <input type="datetime-local" name="arrival">
+  </label><br>
+  <br>
+  <button type="submit" id="">Save</button>  
+</form>
+<br>
+<br>
+<% if (ticket.length) { %>
+<table>
+  <thead>
+      <tr>
+          <th>seat</th>
+          <th>flight</th>
+      </tr>
+  </thead>
+<tbody>
+  <% ticket.forEach(function(f) { %>
+  <tr>
+      <td><%= f.flight %></td>
+      <td><%= f.seat %></td>
+  </tr>
+<% }) %>
+</tbody>
+</table>
+<% } else {%>
+<h5>No Tickets Yet</h5>
+<%  } %>
+<br>
+
+
+
+
+
 
 
 <%- include('../partials/footer') %>
