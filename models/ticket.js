@@ -1,7 +1,7 @@
 Schema = mongoose.Schema
-
-
 const ticketSchema = new Schema({
+ 
+ 
   // defining models
   seat:{
     type: String,

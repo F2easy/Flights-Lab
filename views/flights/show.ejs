@@ -62,7 +62,7 @@
 
 
 
-<form action="/flights/<%= flight.id %>" method="POST">
+<form action="/ticket/<%= flight.id %>" method="POST">
   <label for="ticket"><br>
       <select name="Purchase a Ticket">
           <option value="/[A-F][1-9]\d?/">Seats Available</option>
@@ -77,27 +77,7 @@
 </form>
 <br>
 <br>
-<% if (ticket.length) { %>
-<table>
-  <thead>
-      <tr>
-          <th>seat</th>
-          <th>flight</th>
-      </tr>
-  </thead>
-<tbody>
-  <% ticket.forEach(function(f) { %>
-  <tr>
-      <td><%= f.flight %></td>
-      <td><%= f.seat %></td>
-  </tr>
-<% }) %>
-</tbody>
-</table>
-<% } else {%>
-<h5>No Tickets Yet</h5>
-<%  } %>
-<br>
+
 
 
 
