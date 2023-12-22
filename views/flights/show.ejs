@@ -80,6 +80,27 @@
 
 
 
+    <table>
+        <thead>
+            <tr>
+                <th>Seats</th>
+                <th>flight</th>
+            </tr>
+        </thead>
+    <tbody>
+        <% flight.tickets.forEach(function(t) { %>
+        <tr>
+            <td><%= t %></td>
+            
+        </tr>
+    <% }) %>
+    </tbody>
+    </table>
+    
+    <h5>No Tickets Yet</h5>
+    
+
+
 
 
 

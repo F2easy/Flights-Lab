@@ -36,10 +36,10 @@ const flightSchema = new Schema({
     type: Date
   },
   destinations: [destinationSchema],
-tickets:{
+tickets:[{
   type: Schema.Types.ObjectId,
   ref: 'Ticket'
-}
+}]
 
 
 })

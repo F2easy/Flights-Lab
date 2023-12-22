@@ -19,8 +19,8 @@ async function index(req, res) {
 
 async function showFlight(req,res){
 
-  const flight = await Flight.findById(req.params.id)
-  console.log(req.params)
+  const flight = await Flight.findById(req.params.id).populate({path:'tickets'})
+  console.log(flight)
   const tickets = await Ticket.find({flight: flight._id})
   res.render('flights/show', {title: 'Flight Detail', flight, tickets})
 
@@ -45,10 +45,12 @@ async function addDestination(req,res){
 
 async function createTicket(req, res){
   const ticket = await Ticket.create(req.body);
-  const flight = Flight.findById(req.params.id)
-  flight.tickets.push(ticket._id)
+  const flight = await Flight.findById(req.params.id)
+  console.log("flight variable: " + flight + "ticket_id variable: " + ticket._id)
+  flight.tickets.push(ticket)
   await flight.save()
-  res.redirect(`flights/${flight._id}` )
+  console.log(flight)
+  res.redirect(`/flights/${flight._id}` )
   
 }
 
